@@ -37,7 +37,7 @@ def label_encode(df, cols=None):
     for k, v in val_types.items():
         val_to_idx[k] = {o: i for i, o in enumerate(val_types[k])}
 
-    for k, v in val_to_idx.iteritems():
+    for k, v in val_to_idx.items():
         df[k] = df[k].apply(lambda x: v[x])
 
     return val_to_idx, df
@@ -107,7 +107,7 @@ def prepare_data(df, wide_cols, crossed_cols, embeddings_cols, continuous_cols, 
     encoding_dict = {k: encoding_dict[k]
                      for k in encoding_dict if k in deep_cols}
     embeddings_input = []
-    for k, v in encoding_dict.iteritems():
+    for k, v in encoding_dict.items():
         embeddings_input.append((k, len(v), emb_dim[k]))
 
     # select the deep_cols and get the column index that will be use later
